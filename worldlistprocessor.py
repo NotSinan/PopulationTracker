@@ -10,17 +10,17 @@ class WorldListProcessor:
             # extract the data from the columns
             world_id = int(columns[0].find('a')['id'].split('-')[2])
             population = int(columns[1].text.strip().split()[0])
+
             if world_id not in self.world_populations:
                 self.world_populations[world_id] = population
-            
+            else:
+                diff = population - self.world_populations[world_id]
+                if diff >= 10:
+                    print(f'World {world_id} has increased by {diff} players')
 
-            # calculate the difference in population
-            diff = population - self.world_populations[world_id]
+                self.world_populations[world_id] = population
 
-            # check if the difference is greater than or equal to 10
-            if diff >= 1:
-                print(f'World {world_id} has increased by {diff} players')
-            self.world_populations[world_id] = population
+            # check if the difference is greater than or equal to 1
 
 
         

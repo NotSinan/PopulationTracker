@@ -9,5 +9,5 @@ if __name__ == "__main__":
     while True:
         rows = scraper.get_world_list_rows()
         wlp.get_population(rows)
-        time.sleep(10)
+        time.sleep(12)
     
