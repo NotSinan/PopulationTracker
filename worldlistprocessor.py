@@ -6,7 +6,7 @@ class WorldListProcessor:
         for row in rows:
             # extract the columns from the row
             columns = row.find_all('td')
-
+            
             try:
                 world_id = int(columns[0].find('a')['id'].split('-')[2])
                 population = int(columns[1].text.strip().split()[0])
