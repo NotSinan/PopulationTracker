@@ -11,7 +11,7 @@ def main(threshold):
     while True:
         rows = scraper.get_world_list_rows()
         wlp.get_population(rows)
-        time.sleep(12)
+        time.sleep(10)
     
 
 if __name__ == "__main__":
