@@ -1,5 +1,5 @@
-from webscraper import WebScraper
-from worldlistprocessor import WorldListProcessor
+from populationtracker.webscraper import WebScraper
+from populationtracker.worldlistprocessor import WorldListProcessor
 import time
 import argparse
 
