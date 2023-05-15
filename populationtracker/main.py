@@ -1,17 +1,21 @@
-from populationtracker.webscraper import WebScraper
-from populationtracker.worldlistprocessor import WorldListProcessor
+from webscraper import WebScraper
+from worldlistprocessor import WorldListProcessor
 import time
 import argparse
+from prettyprinter import PrettyPrinter
+import pyfiglet
 
 def main(threshold):
-    print("Application started")
+    print(pyfiglet.figlet_format("OSRS Population Tracker"))
     scraper = WebScraper("https://oldschool.runescape.com/slu?order=WMLPA")
     wlp = WorldListProcessor(threshold)
+    pretty_print = PrettyPrinter()
 
     while True:
         rows = scraper.get_world_list_rows()
-        wlp.get_population(rows)
+        pretty_print.prettyprint(wlp.get_population(rows))
         time.sleep(10)
+        
     
 
 if __name__ == "__main__":

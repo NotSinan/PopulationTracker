@@ -4,6 +4,7 @@ class WorldListProcessor:
         self.threshold = threshold
     
     def get_population(self, rows):
+        world_population = []
         for row in rows:
             columns = row.find_all('td')
             
@@ -18,7 +19,10 @@ class WorldListProcessor:
                     else:
                         diff = population - self.world_populations[world_id]
                         if diff >= self.threshold:
-                            print(f'World {world_id} has increased by {diff} players')
+                            world_population.append((world_id, diff))
                     self.world_populations[world_id] = population
-            except (IndexError, ValueError) as e:
+
+            except (IndexError, ValueError):
                 print(f"Error parsing population data for world {world_id}")
+        
+        return world_population
