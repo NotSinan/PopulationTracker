@@ -1,8 +1,8 @@
 class WorldListProcessor:
-    def __init__(self, threshold) -> None:
+    def __init__(self, threshold):
         self.world_populations = {}
         self.threshold = threshold
-    
+
     def get_population(self, rows):
         world_population = []
         for row in rows:
@@ -23,6 +23,6 @@ class WorldListProcessor:
                     self.world_populations[world_id] = population
 
             except (IndexError, ValueError):
-                print(f"Error parsing population data for world {world_id}")
+                pass
         
         return world_population
